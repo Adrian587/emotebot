@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
+require('dotenv').config(); 
+const token = process.env.DISCORD_TOKEN;
 
 const prefix = config.prefix;
  
@@ -18,6 +20,7 @@ for(const file of commandFiles){
  
 client.once('ready', () => {
     console.log('Emoji bot is online!');
+    console.log(token);
 });
  
 client.on('message', message =>{
@@ -33,6 +36,6 @@ client.on('message', message =>{
     }
 });
  
-client.login(config.token);
+client.login(token);
  
  
