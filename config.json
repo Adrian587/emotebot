@@ -1,3 +1,5 @@
 {
-	"prefix": "."
+	"prefix": ".",
+	"twitch": "twitch emote",
+	"twitch-url": "https://twitchemotes.com/"
 }
