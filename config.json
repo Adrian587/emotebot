@@ -1,5 +1,6 @@
 {
 	"prefix": ".",
 	"twitch": "twitch emote",
-	"twitch-url": "https://twitchemotes.com/"
+	"twitch-url": "https://twitchemotes.com/",
+	"NO_EMOTE_FOUND": "cannot find emote"
 }
