@@ -2,5 +2,8 @@
 	"prefix": ".",
 	"twitch": "twitch emote",
 	"twitch-url": "https://twitchemotes.com/",
-	"NO_EMOTE_FOUND": "cannot find emote"
+	"NO_EMOTE_FOUND": "cannot find emote",
+	"better-twitch": "https://api.betterttv.net/3/emotes/shared/top?offset=0&limit=50",
+	"better-twitch-emote": "https://cdn.betterttv.net/emote/",
+	"BTTV_EMOTES_PATH": "bttvemotes.json"
 }

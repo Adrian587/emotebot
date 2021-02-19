@@ -4,6 +4,7 @@ const config = require('./config.json');
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN;
 const fs = require('fs');
+const betterTwitchScraper = require('./scraper/bttv-scraper');
 
 const prefix = config.prefix;
 
@@ -23,6 +24,7 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log(`Bot is online!`);
+	betterTwitchScraper.getBetterTwitchEmotes();
 });
 
 client.on('message', message => {
