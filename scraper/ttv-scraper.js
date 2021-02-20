@@ -2,7 +2,7 @@ const config = require('../../EmoteBot/config.json');
 
 const { getSiteHtml } = require('../scraper/scraper');
 const cheerio = require('cheerio');
-const emote = require('../commands/util/emote');
+const emote = require('../commands/util/twitch-global');
 
 class twitchScraper {
     async getTwitchEmotes() {

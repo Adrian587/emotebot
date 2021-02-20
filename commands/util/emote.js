@@ -1,17 +1,23 @@
 const config = require('../../config.json');
+const betterTwitchScraper = require("../../scraper/bttv-scraper");
 const twitchScraper = require("../../scraper/ttv-scraper");
 
 module.exports = {
     name: 'e',
     description: "this is a emote search command!",
     async execute(message, args) {
-        for(let i = 0; i < args.length; i++) {
-            let imgResponse = await twitchScraper.findEmote(args[i]);
-            if(imgResponse === config.NO_EMOTE_FOUND) {
-                imgResponse = `There is no emote with name ${args[i]}.`;
+        for (let i = 0; i < args.length; i++) {
+            let imageURL = betterTwitchScraper.findBetterTwitchEmote(args[i]);
+            if(imageURL === config.NO_EMOTE_FOUND) {
+                imageURL = await twitchScraper.findEmote(args[i]);
+                if(imageURL === config.NO_EMOTE_FOUND) {
+                     message.channel.send(`There is no emote with name ${args[i]}.`);
+                } else {
+                    message.channel.send(imageURL);
+                }
+            } else {
+            message.channel.send(imageURL); 
             }
-            message.channel.send(imgResponse);
-
         }
     }
 }

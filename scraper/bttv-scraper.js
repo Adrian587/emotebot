@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 
 const config = require('../../EmoteBot/config.json');
 const { getSiteHtml } = require('../scraper/scraper');
-const emote = require('../commands/util/emote');
+const emote = require('../commands/util/twitch-global');
 const betterEmotes = require('../bttvemotes.json');
 const { url } = require('inspector');
 
