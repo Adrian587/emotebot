@@ -1,5 +1,3 @@
 # EmoteBot
 
-To add to your server:
-
-https://discord.com/oauth2/authorize?client_id=810335599776759859&scope=bot&permissions=1276107912 
+Node.js discord bot that allows users to send twitch.tv emotes in their personal Discord servers. 
