@@ -7,9 +7,9 @@ const fs = require('fs');
 const betterTwitchScraper = require('./scraper/bttv-scraper');
 
 const prefix = config.prefix;
+let BTTV_EMOTES = betterTwitchScraper.getBetterTwitchEmotes();
 
 client.commands = new Discord.Collection();
-
 const commandFolders = fs.readdirSync('./commands');
 
 for (const folder of commandFolders) {
@@ -24,7 +24,6 @@ const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
 	console.log(`Bot is online!`);
-	betterTwitchScraper.getBetterTwitchEmotes();
 });
 
 client.on('message', message => {
@@ -87,5 +86,4 @@ client.on('message', message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 });
-
 client.login(token);

@@ -5,8 +5,9 @@ const cheerio = require('cheerio');
 const config = require('../../EmoteBot/config.json');
 const { getSiteHtml } = require('../scraper/scraper');
 const emote = require('../commands/util/twitch-global');
-const betterEmotes = require('../bttvemotes.json');
+// const betterEmotes = require('../bttvemotes.json');
 const { url } = require('inspector');
+const index = require('../index');
 
 const offsetLimit = 2000;
 let emotes = [];
@@ -23,18 +24,19 @@ class betterTwitchScraper {
             emotes = emotes.concat(currentEmotes);
         }
 
-        try {
-            await fsPromises.writeFile(config.BTTV_EMOTES_PATH, JSON.stringify(emotes, null, 2),);
-        }
-        catch (err) {
-            console.log(err);
-        }
+        // try {
+        //     await fsPromises.writeFile(config.BTTV_EMOTES_PATH, JSON.stringify(emotes, null, 2),);
+        // }
+        // catch (err) {
+        //     console.log(err);
+        // }
+        return emotes;
     }
 
-    findBetterTwitchEmote(emote) {
-        for(let i = 0; i < betterEmotes.length; i++) {
-            if(betterEmotes[i]['emoteName'].toLowerCase() === emote.toLowerCase()) {
-                let imageID = (betterEmotes[i]['emoteID']);
+    findBetterTwitchEmote(emote, emotes) {
+        for(let i = 0; i < emotes.length; i++) {
+            if(emotes[i]['emoteName'].toLowerCase() === emote.toLowerCase()) {
+                let imageID = (emotes[i]['emoteID']);
                 return `https://cdn.betterttv.net/emote/${imageID}/1x.gif`;
             }
         }
