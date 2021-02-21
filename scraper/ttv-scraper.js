@@ -3,7 +3,7 @@ const config = require('../config.json');
 const { getSiteHtml } = require('../scraper/scraper');
 const cheerio = require('cheerio');
 const emote = require('../commands/util/twitch-global');
-
+// test
 class twitchScraper {
     async getTwitchEmotes() {
         const twitchHTML = await getSiteHtml(config['twitch-url']);
