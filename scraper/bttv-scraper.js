@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 const cheerio = require('cheerio');
 
-const config = require('../../EmoteBot/config.json');
+const config = require('../config.json');
 const { getSiteHtml } = require('../scraper/scraper');
 const emote = require('../commands/util/twitch-global');
 // const betterEmotes = require('../bttvemotes.json');

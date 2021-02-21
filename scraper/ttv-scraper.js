@@ -1,4 +1,4 @@
-const config = require('../../EmoteBot/config.json');
+const config = require('../config.json');
 
 const { getSiteHtml } = require('../scraper/scraper');
 const cheerio = require('cheerio');
