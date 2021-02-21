@@ -4,10 +4,8 @@ const config = require('./config.json');
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN;
 const fs = require('fs');
-const betterTwitchScraper = require('./scraper/bttv-scraper');
 
 const prefix = config.prefix;
-let BTTV_EMOTES = betterTwitchScraper.getBetterTwitchEmotes();
 
 client.commands = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');

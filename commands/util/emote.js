@@ -6,9 +6,8 @@ module.exports = {
     name: 'e',
     description: "this is a emote search command!",
     async execute(message, args) {
-        let BTTV_EMOTES = await betterTwitchScraper.getBetterTwitchEmotes();
         for (let i = 0; i < args.length; i++) {
-            let imageURL = betterTwitchScraper.findBetterTwitchEmote(args[i], BTTV_EMOTES);
+            let imageURL = betterTwitchScraper.findBetterTwitchEmote(args[i]);
             if(imageURL === config.NO_EMOTE_FOUND) {
                 imageURL = await twitchScraper.findEmote(args[i]);
                 if(imageURL === config.NO_EMOTE_FOUND) {
