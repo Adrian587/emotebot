@@ -1,6 +1,8 @@
 const config = require('../../config.json');
 const betterTwitchScraper = require("../../scraper/bttv-scraper");
 const twitchScraper = require("../../scraper/ttv-scraper");
+const axios = require('axios');
+
 
 module.exports = {
     name: 'e',
@@ -11,13 +13,16 @@ module.exports = {
             if(imageURL === config.NO_EMOTE_FOUND) {
                 imageURL = await twitchScraper.findEmote(args[i]);
                 if(imageURL === config.NO_EMOTE_FOUND) {
-                     message.channel.send(`There is no emote with name ${args[i]}.`);
+                     message.channel.send(`${message.author.username}, there is no emote with name ${args[i]}.`);
                 } else {
-                    message.channel.send(imageURL);
+                    const response = await axios.get(imageURL,  { responseType: 'arraybuffer' });
+                    const buffer = Buffer.from(response.data, "utf-8");
+                    message.channel.send(message.author.username + ':', {files: [imageURL]}); 
                 }
             } else {
-            message.channel.send(imageURL); 
-            }
+                const response = await axios.get(imageURL,  { responseType: 'arraybuffer' });
+                const buffer = Buffer.from(response.data, "utf-8");
+                message.channel.send(message.author.username + ':', {files: [imageURL]});             }
         }
     }
 }
