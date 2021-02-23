@@ -15,9 +15,8 @@ module.exports = {
                 if(imageURL === config.NO_EMOTE_FOUND) {
                      message.channel.send(`${message.author.username}, there is no emote with name ${args[i]}.`);
                 } else {
-                    const response = await axios.get(imageURL,  { responseType: 'arraybuffer' });
-                    const buffer = Buffer.from(response.data, "utf-8");
-                    message.channel.send(message.author.username + ':', {files: [imageURL]}); 
+                    message.channel.send(message.author.username + ':');
+                    message.channel.send(imageURL); 
                 }
             } else {
                 const response = await axios.get(imageURL,  { responseType: 'arraybuffer' });
